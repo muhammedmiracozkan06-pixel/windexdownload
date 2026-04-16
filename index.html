@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="description" content="Official download center for Windex OS, a high-performance operating system developed by Wind Developers Corporation.">
     <meta name="google-site-verification" content="ISL7gbzEo6_Kwoh19-SjoaOJttRca-P4axeDLnqWsPw" />
     
-    <title>Windex OS | Official Download Center</title>
+    <title>Windex OS | Official Download Center | Wind Developers Corporation</title>
 
     <script type="application/ld+json">
     {
@@ -15,11 +15,11 @@
       "name": "Windex OS",
       "operatingSystem": "Linux",
       "applicationCategory": "OperatingSystem",
-      "url": "https://windwindex.vercel.app",
+      "url": "https://vercel.app",
       "author": {
-        "@type": "Person",
-        "name": "Mirac",
-        "affiliation": "Wind Developers"
+        "@type": "Organization",
+        "name": "Wind Developers Corporation",
+        "url": "https://google.com"
       },
       "softwareVersion": "26.5"
     }
@@ -33,6 +33,7 @@
             text-align: center; 
             padding: 50px 20px;
             margin: 0;
+            line-height: 1.6;
         }
         .container { 
             max-width: 850px; 
@@ -49,6 +50,7 @@
             margin-bottom: 5px;
             letter-spacing: -2px;
         }
+        h2 { color: #58a6ff; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
         .subtitle {
             color: #8b949e;
             font-size: 1.2rem;
@@ -66,21 +68,22 @@
             transition: 0.4s ease; 
             box-shadow: 0 0 25px rgba(35, 134, 54, 0.5); 
             border: 2px solid transparent;
+            margin: 20px 0;
         }
         .btn-download:hover { 
             transform: translateY(-5px) scale(1.02); 
             box-shadow: 0 0 35px rgba(46, 160, 67, 0.7);
             border-color: #58a6ff;
         }
-        .specs { 
-            margin-top: 50px; 
+        .specs, .about-section { 
+            margin-top: 40px; 
             text-align: left; 
             background: #0d1117; 
             padding: 25px; 
             border-radius: 12px; 
             border-left: 6px solid #58a6ff; 
         }
-        .specs h3 { color: #58a6ff; margin-top: 0; font-size: 1.4rem; }
+        .specs h3, .about-section h3 { color: #58a6ff; margin-top: 0; font-size: 1.4rem; }
         .specs ul { list-style: none; padding: 0; }
         .specs li { margin: 10px 0; font-size: 1.1rem; }
         .specs li b { color: #f0f6fc; }
@@ -99,6 +102,12 @@
             font-size: 0.8rem;
             color: #8b949e;
         }
+        footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+        footer a { color: #58a6ff; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -108,10 +117,15 @@
         <h1>WINDEX OS</h1>
         <p class="subtitle">Experience the next generation of speed and security.</p>
         
-        <br>
         <a href="#" class="btn-download">🚀 DOWNLOAD WINDEX 26.5 ISO</a>
-        <br><br>
-        <p style="font-size: 0.85rem; color: #8b949e;">Architecture: x86_64 | Base: Ubuntu Noble | UI: Cinnamon</p>
+        
+        <p style="font-size: 0.9rem; color: #8b949e;"><b>Build:</b> 26.5 Noble | <b>Architecture:</b> x86_64 | <b>UI:</b> Cinnamon</p>
+
+        <div class="about-section">
+            <h3>About Wind Developers Corporation</h3>
+            <p>Founded on <b>December 21, 2023</b>, Wind Developers Corporation is a forward-thinking technology company dedicated to building lightweight, secure, and AI-integrated software solutions. Our flagship product, <b>Windex OS</b>, is designed to provide a seamless user experience while maintaining the power of a Debian-based architecture.</p>
+            <p>Based in Ankara, we focus on high-performance computing and intuitive user interfaces for the next generation of digital workspaces.</p>
+        </div>
 
         <div class="specs">
             <h3>Minimum System Requirements:</h3>
@@ -124,6 +138,14 @@
         </div>
 
         <p class="footer-note">🍉 NEXT MISSION: WINDEX 27 WATERMELON (AI BASED) 🍉</p>
+        
+        <footer>
+            <p>© 2023-2024 Wind Developers Corporation. All rights reserved.</p>
+            <p>
+                <a href="https://google.com">History Page</a> | 
+                <a href="https://instagram.com">Instagram</a>
+            </p>
+        </footer>
     </div>
 
 </body>
