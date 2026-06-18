@@ -3,149 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official download center for Windex OS, a high-performance operating system developed by Wind Developers Corporation.">
-    <meta name="google-site-verification" content="ISL7gbzEo6_Kwoh19-SjoaOJttRca-P4axeDLnqWsPw" />
-    
-    <title>Windex OS | Official Download Center | Wind Developers Corporation</title>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Windex OS",
-      "operatingSystem": "Linux",
-      "applicationCategory": "OperatingSystem",
-      "url": "https://vercel.app",
-      "author": {
-        "@type": "Organization",
-        "name": "Wind Developers Corporation",
-        "url": "https://google.com"
-      },
-      "softwareVersion": "26.5"
-    }
-    </script>
-
+    <title>WindexOS Official Website</title>
     <style>
+        :root {
+            --primary: #007bff;
+            --dark: #1e1e24;
+            --light: #f8f9fa;
+        }
         body { 
-            background-color: #0d1117; 
-            color: #c9d1d9; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            padding: 50px 20px;
-            margin: 0;
-            line-height: 1.6;
+            margin: 0; 
+            padding: 0; 
+            background: var(--light); 
+            color: #333; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .container { 
-            max-width: 850px; 
-            margin: auto; 
-            border: 1px solid #30363d; 
-            padding: 50px; 
-            border-radius: 20px; 
-            background: #161b22; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+        
+        /* Navbar */
+        header { display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; }
+        .logo-area img { width: 40px; height: 40px; object-fit: contain; }
+        nav button { background: none; border: none; font-size: 1rem; font-weight: 600; margin-left: 20px; cursor: pointer; color: #555; transition: color 0.3s; }
+        nav button:hover, nav button.active { color: var(--primary); }
+
+        /* Container */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; flex: 1; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Home Page - Hero Section */
+        .hero { display: flex; align-items: center; gap: 40px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        /* CSS MOCKUP LAPTOP PANELİ (Görseli Laptopun İçine Uyarlama Alanı) */
+        .laptop-container { width: 45%; display: flex; flex-direction: column; align-items: center; }
+        .laptop-screen { 
+            width: 320px; 
+            height: 200px; 
+            background: #111; 
+            border: 12px solid #222; 
+            border-radius: 12px 12px 0 0; 
+            position: relative; 
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
         }
-        h1 { 
-            color: #58a6ff; 
-            font-size: 3.5rem; 
-            margin-bottom: 5px;
-            letter-spacing: -2px;
+        .laptop-screen img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
         }
-        h2 { color: #58a6ff; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-        .subtitle {
-            color: #8b949e;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .laptop-base { 
+            width: 380px; 
+            height: 10px; 
+            background: #e0e0e0; 
+            border-radius: 0 0 10px 10px; 
+            border-bottom: 4px solid #b0b0b0;
+            position: relative;
         }
-        .btn-download { 
-            display: inline-block; 
-            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
-            color: white; 
-            padding: 22px 50px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 1.6rem; 
-            transition: 0.4s ease; 
-            box-shadow: 0 0 25px rgba(35, 134, 54, 0.5); 
-            border: 2px solid transparent;
-            margin: 20px 0;
+        .laptop-base::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 40px; height: 4px;
+            background: #999;
+            border-radius: 0 0 4px 4px;
         }
-        .btn-download:hover { 
-            transform: translateY(-5px) scale(1.02); 
-            box-shadow: 0 0 35px rgba(46, 160, 67, 0.7);
-            border-color: #58a6ff;
-        }
-        .specs, .about-section { 
-            margin-top: 40px; 
-            text-align: left; 
-            background: #0d1117; 
-            padding: 25px; 
-            border-radius: 12px; 
-            border-left: 6px solid #58a6ff; 
-        }
-        .specs h3, .about-section h3 { color: #58a6ff; margin-top: 0; font-size: 1.4rem; }
-        .specs ul { list-style: none; padding: 0; }
-        .specs li { margin: 10px 0; font-size: 1.1rem; }
-        .specs li b { color: #f0f6fc; }
-        .footer-note { 
-            margin-top: 60px; 
-            color: #ff7b72; 
-            font-weight: bold;
-            font-size: 1rem; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .badge {
-            background: #30363d;
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            color: #8b949e;
-        }
-        footer {
-            margin-top: 50px;
-            font-size: 0.85rem;
-            color: #8b949e;
-        }
-        footer a { color: #58a6ff; text-decoration: none; }
+
+        .hero-content { width: 55%; }
+        .hero-content .windex-badge { width: 140px; height: auto; margin-bottom: 15px; object-fit: contain; }
+        .btn { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; cursor: pointer; border: none; font-size: 1rem; }
+        .btn:hover { background: #0056b3; }
+        
+        /* Screenshots */
+        .screenshots-section { margin-top: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .screenshots-section img { width: 100%; border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+        /* Forum Page */
+        .forum-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .forum-input-group { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .forum-input-group input, .forum-input-group textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+        .post { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px; }
+        .post h3 { margin-top: 0; color: var(--dark); }
+
+        /* Info Card */
+        .info-card { background: white; padding: 30px; border-radius: 12px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        /* Footer */
+        footer { background: var(--dark); color: #ccc; text-align: center; padding: 20px; font-size: 0.85rem; margin-top: 60px; }
+        footer p { margin: 5px 0; }
+        footer a { color: var(--primary); text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <p class="badge">WIND DEVELOPERS OFFICIAL SITE</p>
-        <h1>WINDEX OS</h1>
-        <p class="subtitle">Experience the next generation of speed and security.</p>
-        
-        <a href="#" class="btn-download">🚀 DOWNLOAD WINDEX 26.5 ISO</a>
-        
-        <p style="font-size: 0.9rem; color: #8b949e;"><b>Build:</b> 26.5 Noble | <b>Architecture:</b> x86_64 | <b>UI:</b> Cinnamon</p>
+<header>
+    <div class="logo-area">
+        <img src="logo.png" alt="WindexOS Logo">
+        <span>WindexOS</span>
+    </div>
+    <nav>
+        <button onclick="showPage('home')" id="btn-home" class="active">Home</button>
+        <button onclick="showPage('download')" id="btn-download">Download</button>
+        <button onclick="showPage('source')" id="btn-source">Source</button>
+        <button onclick="showPage('forum')" id="btn-forum">Forum</button>
+    </nav>
+</header>
 
-        <div class="about-section">
-            <h3>About Wind Developers Corporation</h3>
-            <p>Founded on <b>December 21, 2023</b>, Wind Developers Corporation is a forward-thinking technology company dedicated to building lightweight, secure, and AI-integrated software solutions. Our flagship product, <b>Windex OS</b>, is designed to provide a seamless user experience while maintaining the power of a Debian-based architecture.</p>
-            <p>Based in Ankara, we focus on high-performance computing and intuitive user interfaces for the next generation of digital workspaces.</p>
+<div class="container">
+    
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="laptop-container">
+                <div class="laptop-screen">
+                    <img src="windexos.png" alt="WindexOS Interface">
+                </div>
+                <div class="laptop-base"></div>
+            </div>
+            
+            <div class="hero-content">
+                <img src="windex.png" alt="Windex" class="windex-badge">
+                <h2>Why WindexOS?</h2>
+                <p>WindexOS offers plenty of innovations for you. Windex version 26 will receive updates for approximately one year; manual installation is up to you. It also stands out with its many innovative features and speed.</p>
+                <p style="color: #d9534f; font-weight: bold;">❗ Most features are offered in Turkish; other languages ​​will be integrated in future updates.</p>
+                <button class="btn" onclick="showPage('download')">Go to Download Page</button>
+            </div>
         </div>
 
-        <div class="specs">
-            <h3>Minimum System Requirements:</h3>
-            <ul>
-                <li>🔹 <b>Processor:</b> 64-bit Dual Core (2.0 GHz+)</li>
-                <li>🔹 <b>Memory:</b> 4GB RAM (8GB Highly Recommended)</li>
-                <li>🔹 <b>Storage:</b> 25GB Free Disk Space</li>
-                <li>🔹 <b>Graphics:</b> Any modern GPU with 3D Support</li>
-            </ul>
+        <div class="screenshots-section">
+            <h2>ScreenShots</h2>
+            <img src="windexos.png" alt="WindexOS Screenshot">
         </div>
 
-        <p class="footer-note">🍉 NEXT MISSION: WINDEX 27 WATERMELON (AI BASED) 🍉</p>
-        
-        <footer>
-            <p>© 2025 Wind Developers Corporation. All rights reserved.</p>
-            <p>
-                <a href="https://sites.google.com/view/ourhistorywind/ana-sayfa">History Page</a> | 
-            </p>
-        </footer>
+        <div class="info-card">
+            <h2>About</h2>
+            <p>WindexOS, announced by Wind Developers, is scheduled to begin development in 2025. It is fast and innovative.</p>
+            <h3>Links</h3>
+            <p>📸 Instagram: <a href="https://instagram.com/windexosreal" target="_blank">@windexosreal</a></p>
+            <p>🏢 Developer: <a href="https://instagram.com/winddevelopers" target="_blank">@winddevelopers</a></p>
+        </div>
     </div>
 
+    <div id="download" class="page">
+        <div style="background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h2>Download WindexOS</h2>
+            <p>Get the latest, innovative, and fast version of WindexOS.</p>
+            <div style="margin: 30px 0; padding: 20px; border: 2px dashed #ccc; background: #fafafa; border-radius: 8px;">
+                <h4>Latest Release: Windex v26</h4>
+                <p>Status: Active Updates (1 Year Support)</p>
+                <a href="#" class="btn" style="background: #28a745; font-size: 1.2rem;">Direct Download (.ISO)</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="source" class="page">
+        <div style="background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h2>Source Code & Repository</h2>
+            <p>WindexOS is built on an open and transparent architecture. Check out the source files on GitHub.</p>
+            <a href="https://github.com/muhammedmiracozkan06-pixel/WindexOS" target="_blank" class="btn" style="background: #333;">Open GitHub Repository</a>
+        </div>
+    </div>
+
+    <div id="forum" class="page">
+        <div class="forum-header">
+            <h2>WindexOS Community Forum</h2>
+            <p>Your posts are safely stored in our main GitHub repository!</p>
+        </div>
+
+        <div class="forum-input-group">
+            <h3>Create a New Post</h3>
+            <input type="text" id="forum-title" placeholder="Post Title...">
+            <textarea id="forum-content" rows="4" placeholder="Write your thoughts, bugs, or feature requests here..."></textarea>
+            <button class="btn" onclick="addPost()">Publish Post</button>
+        </div>
+
+        <div id="posts-container">
+            <div class="post">
+                <h3>Welcome to WindexOS Forums!</h3>
+                <p>This is the official community board. Clicking 'Publish Post' will safely direct you to log your topic directly into our main GitHub repository's tracking system.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.</p>
+    <p>&copy; 2026 Wind Developers. All rights reserved.</p>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+        
+        document.getElementById(pageId).classList.add('active');
+        document.getElementById('btn-' + pageId).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    function addPost() {
+        const title = document.getElementById('forum-title').value;
+        const content = document.getElementById('forum-content').value;
+
+        if(!title || !content) {
+            alert('Please fill in both title and content!');
+            return;
+        }
+
+        const encodedTitle = encodeURIComponent(title);
+        const encodedContent = encodeURIComponent(content + "\n\n---\n*Sent dynamically via WindexOS Web Forum Panel*");
+        const githubIssueUrl = `https://github.com/muhammedmiracozkan06-pixel/WindexOS/issues/new?title=${encodedTitle}&body=${encodedContent}`;
+        
+        window.open(githubIssueUrl, '_blank');
+
+        document.getElementById('forum-title').value = '';
+        document.getElementById('forum-content').value = '';
+    }
+</script>
 </body>
 </html>
