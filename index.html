@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WindexOS Official Website</title>
+    <title>WindexOS Linux</title>
     <style>
         :root {
             --primary: #007bff;
@@ -29,7 +29,6 @@
         .page.active { display: block; }
 
         /* Home - Laptop Mockup */
-        .hero { display: flex; align-items: center; gap: 40px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .laptop-container { width: 45%; display: flex; flex-direction: column; align-items: center; }
         .laptop-screen { 
             width: 320px; height: 200px; background: #111; border: 12px solid #222; 
@@ -38,8 +37,10 @@
         }
         .laptop-screen img { width: 100%; height: 100%; object-fit: cover; }
         .laptop-base { width: 380px; height: 10px; background: #e0e0e0; border-radius: 0 0 10px 10px; border-bottom: 4px solid #b0b0b0; position: relative; }
+        
+        .hero { display: flex; align-items: center; gap: 40px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .hero-content { width: 55%; }
-        .hero-content .windex-badge { width: 140px; height: auto; margin-bottom: 15px; object-fit: contain; }
+        .hero-content .windex-badge { width: 40px; height: 40px; margin-bottom: 15px; object-fit: contain; }
         
         .btn { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; cursor: pointer; border: none; font-size: 1rem; }
         .btn:hover { background: #0056b3; }
@@ -50,7 +51,6 @@
         /* Forum & Comments */
         .forum-input-group, .comment-input-group { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .forum-input-group input, .forum-input-group textarea, .comment-input-group input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .forum-input-group label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 10px; }
         
         .post { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px; border-left: 5px solid var(--primary); position: relative; }
         .post.solved { border-left-color: var(--success); background: #f4fbf6; }
@@ -90,12 +90,12 @@
         <div class="hero">
             <div class="laptop-container">
                 <div class="laptop-screen">
-                    <img src="windexos.png" alt="WindexOS Interface">
+                    <img src="windex.png" alt="WindexOS Screen Presentation">
                 </div>
                 <div class="laptop-base"></div>
             </div>
             <div class="hero-content">
-                <img src="windex.png" alt="Windex" class="windex-badge">
+                <img src="logo.png" alt="WindexOS Mini Logo" class="windex-badge">
                 <h2>Why WindexOS?</h2>
                 <p>WindexOS offers plenty of innovations for you. Windex version 26 will receive updates for approximately one year; manual installation is up to you. It also stands out with its many innovative features and speed.</p>
                 <p style="color: #d9534f; font-weight: bold;">❗ Most features are offered in Turkish; other languages ​​will be integrated in future updates.</p>
@@ -104,7 +104,7 @@
         </div>
         <div class="screenshots-section">
             <h2>ScreenShots</h2>
-            <img src="windexos.png" alt="WindexOS Screenshot">
+            <img src="windex.png" alt="WindexOS Large Screenshot">
         </div>
         <div class="info-card">
             <h2>About</h2>
@@ -137,9 +137,6 @@
         <div class="auth-box" id="auth-section">
             <h3>Wmail SSO Integration Hub</h3>
             <p>Synchronize your remote web client applications with the Central Wmail Identity Cluster.</p>
-            <div style="margin-bottom: 10px;">
-                <input type="text" id="wmail-key-input" placeholder="Enter your Wmail API Key here..." style="padding: 10px; width: 280px; border: 1px solid #ccc; border-radius: 4px;">
-            </div>
             <button class="btn" onclick="triggerWmailSSO()">Login with Wmail</button>
         </div>
 
@@ -162,24 +159,21 @@
 </footer>
 
 <script>
-    // BAĞLANTI VE GÜVENLİK AYARLARI
+    // BAĞLANTI VE SİZİN SAĞLADIĞINIZ GÜVENLİK ANAHTARLARI
     const JSONBIN_API_KEY = "$2a$10$PYes0hav3GwpcfEVgrSDJOOMacCD21pmjLb9JziKF7O2HePDeYGNa"; 
     const JSONBIN_BIN_ID = "6a2d3b5df5f4af5e29eb44dd";   
     const BIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+    
+    // GÖMÜLÜ WMAIL ANAHTARI
+    const WMAIL_API_KEY = "WMAIL-KEY-BSCN9QO23-42070";
 
     let currentUser = null;
     let globalTicketsData = [];
 
-    // 1 & 2. Wmail SSO Core Redirection Engine & Trigger
+    // 1 & 2. Wmail SSO Core Redirection Engine (Key Entegre Edildi)
     function triggerWmailSSO() {
-        const apiKey = document.getElementById('wmail-key-input').value.trim();
-        if(!apiKey) {
-            alert("Please enter your Wmail API Key to initiate handshake matrix!");
-            return;
-        }
-        // Mevcut linki callback adresi yapıp tetikliyoruz
         const callbackUrl = window.location.origin + window.location.pathname + "?page=forum";
-        window.location.href = `https://authwmail.vercel.app/?redirect=${encodeURIComponent(callbackUrl)}&apikey=${encodeURIComponent(apiKey)}`;
+        window.location.href = `https://authwmail.vercel.app/?redirect=${encodeURIComponent(callbackUrl)}&apikey=${encodeURIComponent(WMAIL_API_KEY)}`;
     }
 
     // 3. Response Parameter Ingestion & Session Lock
@@ -197,7 +191,6 @@
             currentUser = { username, email, token };
             localStorage.setItem('wmail_session', JSON.stringify(currentUser));
             
-            // URL temizleme
             window.history.replaceState({}, document.title, window.location.pathname + (pageParam ? `?page=${pageParam}` : ''));
             alert(`Welcome authorized entity: ${username}! Cluster synchronized.`);
         } else {
@@ -206,7 +199,6 @@
 
         renderAuthUI();
 
-        // Eğer URL'de forum sayfası parametresi kalmışsa doğrudan orayı aç
         if(pageParam === 'forum' || urlParams.get('status')) {
             showPage('forum');
         }
@@ -233,7 +225,7 @@
         if(pageId === 'forum') { loadForumData(); }
     }
 
-    // Veritabanı (JSONBin) İşlemleri
+    // JSONBin Veritabanı ve Zaman Kuralları Motoru
     async function loadForumData() {
         const container = document.getElementById('posts-container');
         try {
@@ -242,14 +234,14 @@
             });
             const resData = await res.json();
             
-            // Şemaya göre record içindeki tickets array'ini çekiyoruz
+            // Şemanıza ({ "tickets": [] }) tam uyum sağlanıyor
             globalTicketsData = resData.record && Array.isArray(resData.record.tickets) ? resData.record.tickets : [];
             
             const now = Date.now();
             const twelveHours = 12 * 60 * 60 * 1000;
             const threeDays = 3 * 24 * 60 * 60 * 1000; 
 
-            // ZAMAN KONTROLÜ 1: 3 günü geçen biletleri uçur (Yer açma temizliği)
+            // ZAMAN KONTROLÜ: 3 günü dolduran biletler silinerek alan açılıyor
             const activeTickets = globalTicketsData.filter(ticket => (now - ticket.createdAt) < threeDays);
             
             if (activeTickets.length !== globalTicketsData.length) {
@@ -338,7 +330,6 @@
     }
 
     async function updateJSONBin() {
-        // { "tickets": [...] } şemasına sadık kalarak PUT yapıyoruz
         const wrapData = { tickets: globalTicketsData };
         await fetch(BIN_URL, {
             method: 'PUT',
