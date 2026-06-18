@@ -9,91 +9,64 @@
             --primary: #007bff;
             --dark: #1e1e24;
             --light: #f8f9fa;
+            --success: #28a745;
+            --danger: #dc3545;
         }
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: var(--light); 
-            color: #333; 
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            margin: 0; padding: 0; 
+            background: var(--light); color: #333; 
+            display: flex; flex-direction: column; min-height: 100vh;
         }
-        
-        /* Navbar */
         header { display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .logo-area { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; }
         .logo-area img { width: 40px; height: 40px; object-fit: contain; }
         nav button { background: none; border: none; font-size: 1rem; font-weight: 600; margin-left: 20px; cursor: pointer; color: #555; transition: color 0.3s; }
         nav button:hover, nav button.active { color: var(--primary); }
 
-        /* Container */
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; flex: 1; }
         .page { display: none; }
         .page.active { display: block; }
 
-        /* Home Page - Hero Section */
+        /* Home - Laptop Mockup */
         .hero { display: flex; align-items: center; gap: 40px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        
-        /* CSS MOCKUP LAPTOP PANELİ (Görseli Laptopun İçine Uyarlama Alanı) */
         .laptop-container { width: 45%; display: flex; flex-direction: column; align-items: center; }
         .laptop-screen { 
-            width: 320px; 
-            height: 200px; 
-            background: #111; 
-            border: 12px solid #222; 
-            border-radius: 12px 12px 0 0; 
-            position: relative; 
-            overflow: hidden;
+            width: 320px; height: 200px; background: #111; border: 12px solid #222; 
+            border-radius: 12px 12px 0 0; position: relative; overflow: hidden;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
         }
-        .laptop-screen img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        .laptop-base { 
-            width: 380px; 
-            height: 10px; 
-            background: #e0e0e0; 
-            border-radius: 0 0 10px 10px; 
-            border-bottom: 4px solid #b0b0b0;
-            position: relative;
-        }
-        .laptop-base::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 40px; height: 4px;
-            background: #999;
-            border-radius: 0 0 4px 4px;
-        }
-
+        .laptop-screen img { width: 100%; height: 100%; object-fit: cover; }
+        .laptop-base { width: 380px; height: 10px; background: #e0e0e0; border-radius: 0 0 10px 10px; border-bottom: 4px solid #b0b0b0; position: relative; }
         .hero-content { width: 55%; }
         .hero-content .windex-badge { width: 140px; height: auto; margin-bottom: 15px; object-fit: contain; }
+        
         .btn { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; cursor: pointer; border: none; font-size: 1rem; }
         .btn:hover { background: #0056b3; }
         
-        /* Screenshots */
         .screenshots-section { margin-top: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .screenshots-section img { width: 100%; border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 
-        /* Forum Page */
-        .forum-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .forum-input-group { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .forum-input-group input, .forum-input-group textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
-        .post { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px; }
-        .post h3 { margin-top: 0; color: var(--dark); }
+        /* Forum & Comments */
+        .forum-input-group, .comment-input-group { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .forum-input-group input, .forum-input-group textarea, .comment-input-group input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .forum-input-group label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+        
+        .post { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px; border-left: 5px solid var(--primary); position: relative; }
+        .post.solved { border-left-color: var(--success); background: #f4fbf6; }
+        .post-meta { font-size: 0.8rem; color: #777; margin-bottom: 10px; }
+        
+        .comment { background: #f9f9f9; padding: 10px 15px; border-radius: 6px; margin-top: 10px; border-left: 3px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
+        .comment.is-solved { border-left-color: var(--success); background: #e8f5e9; }
+        
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; color: white; display: inline-block; }
+        .badge.locked { background: var(--danger); }
+        .badge.solved-badge { background: var(--success); }
 
-        /* Info Card */
+        .auth-box { background: #fff; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+
         .info-card { background: white; padding: 30px; border-radius: 12px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-        /* Footer */
         footer { background: var(--dark); color: #ccc; text-align: center; padding: 20px; font-size: 0.85rem; margin-top: 60px; }
-        footer p { margin: 5px 0; }
-        footer a { color: var(--primary); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -121,7 +94,6 @@
                 </div>
                 <div class="laptop-base"></div>
             </div>
-            
             <div class="hero-content">
                 <img src="windex.png" alt="Windex" class="windex-badge">
                 <h2>Why WindexOS?</h2>
@@ -130,12 +102,10 @@
                 <button class="btn" onclick="showPage('download')">Go to Download Page</button>
             </div>
         </div>
-
         <div class="screenshots-section">
             <h2>ScreenShots</h2>
             <img src="windexos.png" alt="WindexOS Screenshot">
         </div>
-
         <div class="info-card">
             <h2>About</h2>
             <p>WindexOS, announced by Wind Developers, is scheduled to begin development in 2025. It is fast and innovative.</p>
@@ -148,7 +118,6 @@
     <div id="download" class="page">
         <div style="background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             <h2>Download WindexOS</h2>
-            <p>Get the latest, innovative, and fast version of WindexOS.</p>
             <div style="margin: 30px 0; padding: 20px; border: 2px dashed #ccc; background: #fafafa; border-radius: 8px;">
                 <h4>Latest Release: Windex v26</h4>
                 <p>Status: Active Updates (1 Year Support)</p>
@@ -160,29 +129,28 @@
     <div id="source" class="page">
         <div style="background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             <h2>Source Code & Repository</h2>
-            <p>WindexOS is built on an open and transparent architecture. Check out the source files on GitHub.</p>
             <a href="https://github.com/muhammedmiracozkan06-pixel/WindexOS" target="_blank" class="btn" style="background: #333;">Open GitHub Repository</a>
         </div>
     </div>
 
     <div id="forum" class="page">
-        <div class="forum-header">
-            <h2>WindexOS Community Forum</h2>
-            <p>Your posts are safely stored in our main GitHub repository!</p>
-        </div>
-
-        <div class="forum-input-group">
-            <h3>Create a New Post</h3>
-            <input type="text" id="forum-title" placeholder="Post Title...">
-            <textarea id="forum-content" rows="4" placeholder="Write your thoughts, bugs, or feature requests here..."></textarea>
-            <button class="btn" onclick="addPost()">Publish Post</button>
-        </div>
-
-        <div id="posts-container">
-            <div class="post">
-                <h3>Welcome to WindexOS Forums!</h3>
-                <p>This is the official community board. Clicking 'Publish Post' will safely direct you to log your topic directly into our main GitHub repository's tracking system.</p>
+        <div class="auth-box" id="auth-section">
+            <h3>Wmail SSO Integration Hub</h3>
+            <p>Synchronize your remote web client applications with the Central Wmail Identity Cluster.</p>
+            <div style="margin-bottom: 10px;">
+                <input type="text" id="wmail-key-input" placeholder="Enter your Wmail API Key here..." style="padding: 10px; width: 280px; border: 1px solid #ccc; border-radius: 4px;">
             </div>
+            <button class="btn" onclick="triggerWmailSSO()">Login with Wmail</button>
+        </div>
+
+        <div id="forum-main-content" style="display: none;">
+            <div class="forum-input-group">
+                <h3>Create a New Post</h3>
+                <input type="text" id="forum-title" placeholder="Post Title...">
+                <textarea id="forum-content" rows="3" placeholder="Write something..."></textarea>
+                <button class="btn" onclick="createNewPost()">Publish Post</button>
+            </div>
+            <div id="posts-container">Loading community board...</div>
         </div>
     </div>
 
@@ -194,32 +162,196 @@
 </footer>
 
 <script>
+    // BAĞLANTI VE GÜVENLİK AYARLARI
+    const JSONBIN_API_KEY = "$2a$10$PYes0hav3GwpcfEVgrSDJOOMacCD21pmjLb9JziKF7O2HePDeYGNa"; 
+    const JSONBIN_BIN_ID = "6a2d3b5df5f4af5e29eb44dd";   
+    const BIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+
+    let currentUser = null;
+    let globalTicketsData = [];
+
+    // 1 & 2. Wmail SSO Core Redirection Engine & Trigger
+    function triggerWmailSSO() {
+        const apiKey = document.getElementById('wmail-key-input').value.trim();
+        if(!apiKey) {
+            alert("Please enter your Wmail API Key to initiate handshake matrix!");
+            return;
+        }
+        // Mevcut linki callback adresi yapıp tetikliyoruz
+        const callbackUrl = window.location.origin + window.location.pathname + "?page=forum";
+        window.location.href = `https://authwmail.vercel.app/?redirect=${encodeURIComponent(callbackUrl)}&apikey=${encodeURIComponent(apiKey)}`;
+    }
+
+    // 3. Response Parameter Ingestion & Session Lock
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const pageParam = urlParams.get('page');
+        
+        if (status === 'success') {
+            const username = urlParams.get('username');
+            const email = urlParams.get('email');
+            const token = urlParams.get('token');
+
+            console.log(`Identity verified successfully: ${username} (${email})`);
+            currentUser = { username, email, token };
+            localStorage.setItem('wmail_session', JSON.stringify(currentUser));
+            
+            // URL temizleme
+            window.history.replaceState({}, document.title, window.location.pathname + (pageParam ? `?page=${pageParam}` : ''));
+            alert(`Welcome authorized entity: ${username}! Cluster synchronized.`);
+        } else {
+            currentUser = JSON.parse(localStorage.getItem('wmail_session'));
+        }
+
+        renderAuthUI();
+
+        // Eğer URL'de forum sayfası parametresi kalmışsa doğrudan orayı aç
+        if(pageParam === 'forum' || urlParams.get('status')) {
+            showPage('forum');
+        }
+    });
+
+    function renderAuthUI() {
+        if (currentUser) {
+            document.getElementById('auth-section').innerHTML = `<h3>Welcome authorized entity: ${currentUser.username}!</h3><p>${currentUser.email}</p><button class="btn" style="background:#6c757d" onclick="logout()">Logout / Desynchronize</button>`;
+            document.getElementById('forum-main-content').style.display = 'block';
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem('wmail_session');
+        window.location.reload();
+    }
+
     function showPage(pageId) {
         document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
         document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-        
         document.getElementById(pageId).classList.add('active');
         document.getElementById('btn-' + pageId).classList.add('active');
         window.scrollTo(0,0);
+        if(pageId === 'forum') { loadForumData(); }
     }
 
-    function addPost() {
-        const title = document.getElementById('forum-title').value;
-        const content = document.getElementById('forum-content').value;
+    // Veritabanı (JSONBin) İşlemleri
+    async function loadForumData() {
+        const container = document.getElementById('posts-container');
+        try {
+            const res = await fetch(`${BIN_URL}/latest`, {
+                headers: { "X-Master-Key": JSONBIN_API_KEY }
+            });
+            const resData = await res.json();
+            
+            // Şemaya göre record içindeki tickets array'ini çekiyoruz
+            globalTicketsData = resData.record && Array.isArray(resData.record.tickets) ? resData.record.tickets : [];
+            
+            const now = Date.now();
+            const twelveHours = 12 * 60 * 60 * 1000;
+            const threeDays = 3 * 24 * 60 * 60 * 1000; 
 
-        if(!title || !content) {
-            alert('Please fill in both title and content!');
-            return;
+            // ZAMAN KONTROLÜ 1: 3 günü geçen biletleri uçur (Yer açma temizliği)
+            const activeTickets = globalTicketsData.filter(ticket => (now - ticket.createdAt) < threeDays);
+            
+            if (activeTickets.length !== globalTicketsData.length) {
+                globalTicketsData = activeTickets;
+                await updateJSONBin(); 
+            }
+
+            container.innerHTML = globalTicketsData.length === 0 ? "<p>No active tickets or community posts available.</p>" : "";
+
+            globalTicketsData.forEach((ticket, index) => {
+                const isLocked = (now - ticket.createdAt) >= twelveHours;
+                const isSolved = ticket.solvedCommentId !== null;
+                
+                const postDiv = document.createElement('div');
+                postDiv.className = `post ${isSolved ? 'solved' : ''}`;
+                
+                let commentsHtml = '';
+                ticket.comments.forEach((c, cIdx) => {
+                    const isThisCommentSolved = ticket.solvedCommentId === cIdx;
+                    commentsHtml += `
+                        <div class="comment ${isThisCommentSolved ? 'is-solved' : ''}">
+                            <div><strong>${escapeHtml(c.author)}:</strong> ${escapeHtml(c.text)}</div>
+                            ${(!isSolved && currentUser && currentUser.email === ticket.authorEmail) ? 
+                                `<button class="btn" style="padding:4px 8px; margin:0; font-size:0.8rem; background:var(--success);" onclick="markAsSolved(${index}, ${cIdx})">✔ Çözdü</button>` : ''}
+                            ${isThisCommentSolved ? `<span class="badge solved-badge">Çözüm</span>` : ''}
+                        </div>`;
+                });
+
+                postDiv.innerHTML = `
+                    <div class="post-meta">Cluster entity: <b>${escapeHtml(ticket.author)}</b> | ${new Date(ticket.createdAt).toLocaleString()}</div>
+                    <h3>${escapeHtml(ticket.title)}</h3>
+                    <p>${escapeHtml(ticket.content)}</p>
+                    ${isLocked ? '<span class="badge locked">🔒 Comments Locked (12h elapsed)</span>' : ''}
+                    ${isSolved ? '<span class="badge solved-badge">✔ Solved</span>' : ''}
+                    <div class="comments-section">${commentsHtml}</div>
+                    ${!isLocked ? `
+                        <div class="comment-input-group" style="margin-top:15px; padding:0; box-shadow:none;">
+                            <input type="text" id="c-input-${index}" placeholder="Reply to this cluster pipeline...">
+                            <button class="btn" style="padding:6px 12px; margin-top:5px; font-size:0.85rem;" onclick="addComment(${index})">Reply</button>
+                        </div>` : ''}
+                `;
+                container.appendChild(postDiv);
+            });
+        } catch (err) {
+            container.innerHTML = "<p>Database sync failure. Verify Master Key and Bin configuration.</p>";
         }
+    }
 
-        const encodedTitle = encodeURIComponent(title);
-        const encodedContent = encodeURIComponent(content + "\n\n---\n*Sent dynamically via WindexOS Web Forum Panel*");
-        const githubIssueUrl = `https://github.com/muhammedmiracozkan06-pixel/WindexOS/issues/new?title=${encodedTitle}&body=${encodedContent}`;
-        
-        window.open(githubIssueUrl, '_blank');
+    async function createNewPost() {
+        const title = document.getElementById('forum-title').value.trim();
+        const content = document.getElementById('forum-content').value.trim();
+        if (!title || !content || !currentUser) return;
 
+        globalTicketsData.unshift({
+            title, content,
+            author: currentUser.username,
+            authorEmail: currentUser.email,
+            createdAt: Date.now(),
+            solvedCommentId: null,
+            comments: []
+        });
+
+        await updateJSONBin();
         document.getElementById('forum-title').value = '';
         document.getElementById('forum-content').value = '';
+        loadForumData();
+    }
+
+    async function addComment(ticketIndex) {
+        const text = document.getElementById(`c-input-${ticketIndex}`).value.trim();
+        if (!text || !currentUser) return;
+
+        globalTicketsData[ticketIndex].comments.push({
+            author: currentUser.username,
+            text: text
+        });
+
+        await updateJSONBin();
+        loadForumData();
+    }
+
+    async function markAsSolved(ticketIndex, commentIndex) {
+        globalTicketsData[ticketIndex].solvedCommentId = commentIndex;
+        await updateJSONBin();
+        loadForumData();
+    }
+
+    async function updateJSONBin() {
+        // { "tickets": [...] } şemasına sadık kalarak PUT yapıyoruz
+        const wrapData = { tickets: globalTicketsData };
+        await fetch(BIN_URL, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "X-Master-Key": JSONBIN_API_KEY
+            },
+            body: JSON.stringify(wrapData)
+        });
+    }
+
+    function escapeHtml(text) {
+        return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 </script>
 </body>
